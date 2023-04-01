@@ -1,0 +1,47 @@
+//Create a Employee Bean class with following 3 fields: 
+//int empId, String name, int salary. 
+//Implement the Comparable interface within the Employee class and define the sorting logic according to the salary, and if 2 Employee salary is same then sort them according to their name. 
+//Create a Main class with main method and inside the main class create a TreeSet class object which can hold multiple Employee object. 
+//Add 5 Employee object with some dummy data and print each Each Employee object one by one from the TreeSet object.
+
+
+package com.employee;
+
+class Employee implements Comparable<Employee> {
+    private int empId;
+    private String name;
+    private int salary;
+
+    public Employee(int empId, String name, int salary) {
+        this.empId = empId;
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public int getEmpId() {
+        return empId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        if (this.salary != o.salary) {
+            return Integer.compare(this.salary, o.salary);
+        } else {
+            return this.name.compareTo(o.name);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Employee [empId=" + empId + ", name=" + name + ", salary=" + salary + "]";
+    }
+}
+
